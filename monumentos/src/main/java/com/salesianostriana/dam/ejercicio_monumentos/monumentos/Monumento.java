@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.ejemploapirest;
+package com.salesianostriana.dam.ejercicio_monumentos.monumentos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,13 +13,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Alumno {
+public class Monumento {
 
     @Id
     @GeneratedValue
     private long id;
 
-    private String nombre, apellidos, email;
-    private int edad;
+    private String codigo, nombrePais, nombreCiudad;
+    private Double longitud, latitud;
+    private String nombreMonumento, descripcion, url;
 
 }
