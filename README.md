@@ -1,7 +1,7 @@
 # AD-PSP
 
 GET:
-si todo sale bien te debe devolver un "200 OK"
+si todo sale bien te debe devolver un "200 OK" <br />
 si sale mal sale "404 Not Found"
 
 Post: 
