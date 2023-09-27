@@ -11,35 +11,52 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ControladorAlumno {
 
-    private final RepositorioAlumno repositorioAlumno;
+    private final AlumnoRepositorio alumnoRepositorio;
 
     @GetMapping("/alumno/")
-    public List<Alumno> getAll(){
-        return repositorioAlumno.findAll();
+    public ResponseEntity <List<Alumno>> getAll(){
+        List<Alumno> result = alumnoRepositorio.findAll();
+
+        if(result.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/alumno/{id}")
-    public Alumno getById(@PathVariable int id){
-        return repositorioAlumno.findById(id)
-                .orElse(null);
+    public ResponseEntity<Alumno> getById(@PathVariable long id){
+        return ResponseEntity.of(alumnoRepositorio.findById(id));
+
+        //El of te es un atajo al optional que te devuelve 200 si esta bien
+        //o te devuelve 404 si no se ha encontrado
     }
 
     @PostMapping("/alumno/")
-    public Alumno create(@RequestBody Alumno alumno){
-        return repositorioAlumno.save(alumno);
+    public ResponseEntity<Alumno> create(@RequestBody Alumno alumno){
+        Alumno nuevo = alumnoRepositorio.save(alumno);
+        //return ResponseEntity.created(null).body(nuevo);
+        return ResponseEntity.status(201).body(nuevo);
     }
 
     @PutMapping("/alumno/{id}")
-    public Alumno edit(@PathVariable int i, @RequestBody Alumno alumno){
-        return repositorioAlumno.edit(alumno);
+    public ResponseEntity<Alumno> edit(@PathVariable long id, @RequestBody Alumno alumno){
+
+        return ResponseEntity.of(alumnoRepositorio.findById(id)
+                .map(antiguo -> {
+                    antiguo.setNombre((alumno.getNombre()));
+                    antiguo.setApellidos(alumno.getApellidos());
+                    antiguo.setEdad(alumno.getEdad());
+                    antiguo.setEmail(alumno.getEmail());
+                    return alumnoRepositorio.save(antiguo);
+                }));
+
     }
 
     @DeleteMapping("/alumno/{id}")
-    public ResponseEntity<?> delete(@PathVariable int id){
-        Optional<Alumno> a = repositorioAlumno.findById(id);
+    public ResponseEntity<?> delete(@PathVariable Long id){
 
-        if(a.isPresent())
-            repositorioAlumno.delete(a.get());
+        if(alumnoRepositorio.existsById(id))
+            alumnoRepositorio.deleteById(id);
 
         return ResponseEntity.noContent().build();
     }
