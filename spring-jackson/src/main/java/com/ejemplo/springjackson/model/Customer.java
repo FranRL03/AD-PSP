@@ -1,6 +1,7 @@
 package com.ejemplo.springjackson.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.sql.SQLOutput;
@@ -21,6 +22,7 @@ public class Customer {
 
 
     @JsonIgnore
+    @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Vehicle> vehicles = new HashSet<>();
     /* Un customer tiene muchos customers haciendolo bidireccional*/

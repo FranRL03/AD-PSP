@@ -18,6 +18,7 @@ public class VehicleController {
     @Autowired
     private VehicleRepository repository;
 
+    @GetMapping
     public List<Vehicle> findAll(){
         return repository.findAll();
     }

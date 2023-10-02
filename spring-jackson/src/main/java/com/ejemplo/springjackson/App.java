@@ -35,6 +35,8 @@ public class App {
 
 		vehicleRepo.saveAll(List.of(veh1, veh2, veh3, veh4, veh5, veh6));
 
+		System.out.println("Customer");
+
 	}
 
 }

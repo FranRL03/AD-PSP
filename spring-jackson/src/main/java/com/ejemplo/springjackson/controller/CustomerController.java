@@ -17,6 +17,7 @@ public class CustomerController {
     @Autowired
     private CustomerRepository repository;
 
+    @GetMapping
     public List<Customer> findAll(){
         return repository.findAll();
     }
