@@ -1,10 +1,13 @@
 package com.salesianostriana.dam.rest.dto.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.salesianostriana.dam.rest.dto.View.MonumentoView.*;
 
 import java.util.List;
 
@@ -16,12 +19,29 @@ import java.util.List;
 public class Monumento {
 
     @Id @GeneratedValue
+    @JsonView({MonumentoList.class})
     private Long id;
 
-    private String codigoPais, pais, ciudad,
-            loc, nombre, descripcion;
+    @JsonView({MonumentoDetails.class})
+    private String codigoPais;
+
+    @JsonView({MonumentoDetails.class})
+    private String pais;
+
+    @JsonView({MonumentoDetails.class})
+    private String ciudad;
+
+    @JsonView({MonumentoDetails.class})
+    private String loc;
+
+    @JsonView({MonumentoList.class})
+    private String nombre;
+
+    @JsonView({MonumentoDetails.class})
+    private String descripcion;
 
     @ElementCollection // Obligatoria en Spring Boot 2.
+    @JsonView({MonumentoList.class})
     private List<String> imagenes;
 
     @ManyToOne

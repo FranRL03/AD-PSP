@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.rest.dto.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.salesianostriana.dam.rest.dto.View.MonumentoView;
 import com.salesianostriana.dam.rest.dto.dto.GetMonumentoDetailsDto;
 import com.salesianostriana.dam.rest.dto.dto.GetMonumentoDto;
 import com.salesianostriana.dam.rest.dto.model.entities.Monumento;
@@ -21,6 +23,7 @@ public class MonumentoController {
     private final MonumentoRepository monumentoRepository;
 
     @GetMapping("/")
+    @JsonView(MonumentoView.MonumentoDetails.class)
     public ResponseEntity<List<GetMonumentoDto>> todos() {
 
         List<Monumento> data = monumentoRepository.findAll();
@@ -39,6 +42,7 @@ public class MonumentoController {
     }
 
     @GetMapping("/{id}")
+    @JsonView(MonumentoView.MonumentoList.class)
     public ResponseEntity<GetMonumentoDetailsDto> porId(@PathVariable Long id) {
         return ResponseEntity.of(monumentoRepository.findById(id)
                 .map(GetMonumentoDetailsDto::of));

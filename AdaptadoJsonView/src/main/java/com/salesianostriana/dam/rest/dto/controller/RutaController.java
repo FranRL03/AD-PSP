@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.rest.dto.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.salesianostriana.dam.rest.dto.View.RutaView;
 import com.salesianostriana.dam.rest.dto.dto.EditRutaDto;
 import com.salesianostriana.dam.rest.dto.dto.GetRutaDto;
 import com.salesianostriana.dam.rest.dto.model.entities.Ruta;
@@ -22,6 +24,7 @@ public class RutaController {
     private final RutaService rutaService;
 
     @GetMapping("/")
+    @JsonView(RutaView.RutaDetails.class)
     public ResponseEntity<List<GetRutaDto>> todas() {
 
         List<Ruta> rutas = rutaRepository.findAll();
