@@ -35,7 +35,7 @@ public class CustomerController {
     @JsonView(CustomerDetail.class)
     public Customer findById(@PathVariable Long id){
         return customers.stream()
-                .filter(customer -> customer.getId().equals(id)) 
+                .filter(customer -> customer.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
