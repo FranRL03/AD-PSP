@@ -19,12 +19,12 @@ public class App {
 		var customerRepo = ctx.getBean(CustomerRepository.class);
 		var vehicleRepo = ctx.getBean(VehicleRepository.class);
 
-		Customer cust1 = new Customer("cust1", "cust1@gamil.com");
-		Customer cust2 = new Customer("cust2", "cust2@gamil.com");
-		Customer cust3 = new Customer("cust3", "cust3@gamil.com");
-		Customer cust4 = new Customer("cust4", "cust1@gamil.com");
+		Customer cust1 = new Customer("cust1", "cust1@gmail.com");
+		Customer cust2 = new Customer("cust2", "cust2@gmail.com");
+		Customer cust3 = new Customer("cust3", "cust3@gmail.com");
+		Customer cust4 = new Customer("cust4", "cust4@gmail.com");
 
-		customerRepo.saveAll((List.of(cust1, cust2, cust3, cust4)));
+		customerRepo.saveAll(List.of(cust1, cust2, cust3, cust4));
 
 		Vehicle veh1 = new Vehicle("veh1", 1.2, 1990, cust1);
 		Vehicle veh2 = new Vehicle("veh2", 1.2, 1991, cust1);
@@ -35,7 +35,7 @@ public class App {
 
 		vehicleRepo.saveAll(List.of(veh1, veh2, veh3, veh4, veh5, veh6));
 
-		System.out.println("Customer");
+		//System.out.println("Customer");
 
 	}
 

@@ -1,7 +1,9 @@
 package com.ejemplo.springjackson.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import jakarta.persistence.*;
 
 import java.sql.SQLOutput;
@@ -9,19 +11,23 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+//@JsonIgnoreType //lo ignora globalmente
 @Entity
 public class Customer {
 
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String nombre, email;
+    private String nombre;
 
+    private String email;
+
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     private LocalDateTime createdAt;
 
 
-    @JsonIgnore
+    //@JsonIgnore
     @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Vehicle> vehicles = new HashSet<>();

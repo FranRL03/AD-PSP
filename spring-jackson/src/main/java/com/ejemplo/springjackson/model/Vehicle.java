@@ -1,19 +1,21 @@
 package com.ejemplo.springjackson.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
 public class Vehicle {
 
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String modelo;
 
+    @JsonProperty("cc")
     private Double cubicCentimeters;
 
-    private int releasedYear;
+    private Integer releasedYear;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;

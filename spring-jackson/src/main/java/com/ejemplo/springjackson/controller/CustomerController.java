@@ -17,9 +17,11 @@ public class CustomerController {
     @Autowired
     private CustomerRepository repository;
 
-    @GetMapping
+    @GetMapping("/")
     public List<Customer> findAll(){
-        return repository.findAll();
+
+        //return repository.findAll();
+        return repository.findWithVehicles();
     }
 
     @GetMapping("/{id}")
