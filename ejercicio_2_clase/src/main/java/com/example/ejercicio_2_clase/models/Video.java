@@ -10,10 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Builder
-@IdClass(CursoOnline.class)
+//@IdClass(VideoPk.class)
 public class Video {
 
-    @Id
+    //@Id
     @ManyToOne
     private CursoOnline cursoOnline;
 
@@ -35,6 +35,7 @@ public class Video {
     private String url;
 
     public VideoPk getId() {
+
         return new VideoPk(cursoOnline, id);
     }
 

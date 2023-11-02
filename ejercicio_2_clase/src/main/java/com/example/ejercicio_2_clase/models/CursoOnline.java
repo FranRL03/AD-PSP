@@ -52,7 +52,7 @@ public class CursoOnline {
     //=====================================================================
 
     public void addVideo (Video v) {
-        videos.add(v);
+       videos.add(v);
         v.setCursoOnline(this);
     }
 
