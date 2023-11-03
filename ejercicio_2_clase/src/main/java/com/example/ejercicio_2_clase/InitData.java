@@ -24,8 +24,8 @@ public class InitData {
     public void init(){
 
         Profesor p1 = Profesor.builder()
-                .nombre("Luismi")
-                .email("luismi@gmail.com")
+                .nombre("profe1")
+                .email("profe1@gmail.com")
                 .puntuacion(8)
                 .build();
 
@@ -33,7 +33,7 @@ public class InitData {
         profesorRepository.save(p1);
 
         CursoOnline c1 = CursoOnline.builder()
-                .nombre("Java Desde Cero")
+                .nombre("Java")
                 .puntuacion(7)
                 .build();
 
