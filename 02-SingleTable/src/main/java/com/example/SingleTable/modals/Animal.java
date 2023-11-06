@@ -1,4 +1,4 @@
-package com.rebolledonaharro.SingleTable.modals;
+package com.example.SingleTable.modals;
 
 import jakarta.persistence.*;
 import lombok.Getter;

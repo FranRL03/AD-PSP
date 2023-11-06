@@ -1,10 +1,10 @@
-package com.rebolledonaharro.SingleTable;
+package com.example.SingleTable;
 
-import com.rebolledonaharro.SingleTable.modals.Ave;
-import com.rebolledonaharro.SingleTable.modals.Mamifero;
-import com.rebolledonaharro.SingleTable.service.AnimalService;
-import com.rebolledonaharro.SingleTable.service.AveService;
-import com.rebolledonaharro.SingleTable.service.MamiferoService;
+import com.example.SingleTable.modals.Ave;
+import com.example.SingleTable.modals.Mamifero;
+import com.example.SingleTable.service.AnimalService;
+import com.example.SingleTable.service.AveService;
+import com.example.SingleTable.service.MamiferoService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
-package com.rebolledonaharro.SingleTable.repo;
+package com.example.SingleTable.repo;
 
-import com.rebolledonaharro.SingleTable.modals.Mamifero;
+import com.example.SingleTable.modals.Mamifero;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

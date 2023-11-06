@@ -1,4 +1,4 @@
-package com.rebolledonaharro.SingleTable.service;
+package com.example.SingleTable.service;
 
 import org.springframework.stereotype.Service;
 

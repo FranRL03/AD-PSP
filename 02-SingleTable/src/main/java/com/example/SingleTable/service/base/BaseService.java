@@ -1,4 +1,4 @@
-package com.rebolledonaharro.SingleTable.service.base;
+package com.example.SingleTable.service.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

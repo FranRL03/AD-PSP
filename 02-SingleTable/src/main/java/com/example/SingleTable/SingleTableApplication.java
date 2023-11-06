@@ -1,4 +1,4 @@
-package com.rebolledonaharro.SingleTable;
+package com.example.SingleTable;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
