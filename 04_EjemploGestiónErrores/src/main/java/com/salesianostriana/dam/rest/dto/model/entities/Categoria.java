@@ -1,25 +1,20 @@
-package com.salesianostriana.dam.ejemploapirest;
+package com.salesianostriana.dam.rest.dto.model.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Alumno {
+public class Categoria {
 
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue
+    private Long id;
 
-    private String nombre, apellidos, email;
-    private int edad;
-
+    private String nombre;
 }

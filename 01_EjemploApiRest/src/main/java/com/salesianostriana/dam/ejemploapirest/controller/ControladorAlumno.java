@@ -1,11 +1,12 @@
-package com.salesianostriana.dam.ejemploapirest;
+package com.salesianostriana.dam.ejemploapirest.controller;
 
+import com.salesianostriana.dam.ejemploapirest.models.Alumno;
+import com.salesianostriana.dam.ejemploapirest.repo.AlumnoRepositorio;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -32,7 +33,7 @@ public class ControladorAlumno {
     }
 
     @PostMapping("/alumno/")
-    public ResponseEntity<Alumno> create(@RequestBody Alumno alumno){
+    public ResponseEntity<Alumno> create( @RequestBody Alumno alumno){
         Alumno nuevo = alumnoRepositorio.save(alumno);
         //return ResponseEntity.created(null).body(nuevo);
         return ResponseEntity.status(201).body(nuevo);
