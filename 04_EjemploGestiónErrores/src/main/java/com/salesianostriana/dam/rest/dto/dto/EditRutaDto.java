@@ -7,9 +7,9 @@ import java.util.List;
 
 public record EditRutaDto(
 
-        @NotEmpty(message = "Nombre vacío")
+        @NotEmpty(message = "{editRutaDto.nombre.notempty}")
         String nombre,
-        @Min(1)
+        @Min(value=1, message = "El valor tiene que ser mayor a 0")
         int duracion,
         String dificultad,
         List<Long> monumentos) {
