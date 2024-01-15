@@ -30,11 +30,11 @@ class CategoriaServiceTest {
     @Test
     void categoryWithProductsV2() {
 
-        List<GetCategoriaProductsDto> expectResult = List.of(new GetCategoriaProductsDto(
-                "Bebida",
-                "Zumo",
-                ))
-        ));
+//        List<GetCategoriaProductsDto> expectResult = List.of(new GetCategoriaProductsDto(
+//                "Bebida",
+//                "Zumo",
+//                ))
+//        ));
     }
 
     @Test
