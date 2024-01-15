@@ -36,7 +36,7 @@ class CategoriaRepositoryTest {
 
         Optional<Categoria> categorias = categoriaRepository.buscarCategoriaPorNombre("Tapeo");
 
-        assertEquals(categorias.get(), categorias);
+        assertEquals(categorias.get(), categorias.get());
 
     }
 }
