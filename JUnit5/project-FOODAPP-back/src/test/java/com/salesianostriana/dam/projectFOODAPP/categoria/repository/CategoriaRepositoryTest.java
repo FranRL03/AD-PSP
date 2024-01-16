@@ -31,8 +31,17 @@ class CategoriaRepositoryTest {
                 .nombre("Comida")
                 .build();
 
-        entityManager.merge(c1);
-        entityManager.persist(c2);
+
+        /*
+        Utilizar esta estrategia para las consultas UPDATE
+         */
+//        entityManager.merge(c1);
+//        entityManager.persist(c2);
+
+        /*
+        Utilizar esta estrategia para las consultas SELECT
+         */
+        categoriaRepository.saveAll(List.of(c1, c2));
 
         Optional<Categoria> categorias = categoriaRepository.buscarCategoriaPorNombre("Tapeo");
 
